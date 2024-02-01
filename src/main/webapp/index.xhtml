@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <h:form>
+        <div class="row">
+            <div class="col">
+                <h2>Unser Inhalt</h2>
+                <p>Unsere Mission ist es, Bewusstsein für die Bedeutung der Emissionsreduktion zu schaffen und Lösungen aufzuzeigen, die für jeden zugänglich und umsetzbar sind. Wir glauben, dass Umweltschutz keine Option, sondern eine Verantwortung ist, die wir alle teilen.</p>
+
+                <h:inputText id="filterEmitter" size="33" placeholder="Land o. Unternehmen Suchen ..." styleClass="mb-3"
+                             value="#{bean.filterValue}">
+                    <!-- Optional: ValueChangeListener, wenn du die Suchergebnisse sofort aktualisieren möchtest -->
+                </h:inputText>
+
+                <h:dataTable value="#{bean.emissionDataList}" var="data" styleClass="table table-hover">
+                    <h:column>
+                        <f:facet name="header">#</f:facet>
+                        #{data.index}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Land</f:facet>
+                        #{data.country}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Unternehmen</f:facet>
+                        #{data.company}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">CO²-Emissionen</f:facet>
+                        #{data.emissions}
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>

@@ -12,6 +12,16 @@ public class Co2EmissionsEntity {
     @Id
     @Column(name = "emissions_id")
     private int emissionsId;
+
+    @Override
+    public String toString() {
+        return "Co2EmissionsEntity{" +
+                "countryCode='" + countryCode + '\'' +
+                ", date=" + date +
+                ", amountValue=" + amountValue +
+                '}';
+    }
+
     @Basic
     @Column(name = "country_code", insertable = false, updatable = false)
     private String countryCode;
