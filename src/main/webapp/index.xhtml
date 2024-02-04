@@ -1,44 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-    <title>Title</title>
-</h:head>
-<h:body>
-    <h:form>
-        <div class="row">
-            <div class="col">
-                <h2>Unser Inhalt</h2>
-                <p>Unsere Mission ist es, Bewusstsein für die Bedeutung der Emissionsreduktion zu schaffen und Lösungen aufzuzeigen, die für jeden zugänglich und umsetzbar sind. Wir glauben, dass Umweltschutz keine Option, sondern eine Verantwortung ist, die wir alle teilen.</p>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<f:view contentType="text/html" encoding="UTF-8">
+    <h:head>
+        <title>Der Carbon-Wächter</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <!-- styles -->
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              rel="stylesheet"
+        />
+    </h:head>
+    <h:body styleClass="d-flex flex-column h-100">
+        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span>Der Carbon-Wächter</span>
+                </a>
 
-                <h:inputText id="filterEmitter" size="33" placeholder="Land o. Unternehmen Suchen ..." styleClass="mb-3"
-                             value="#{bean.filterValue}">
-                    <!-- Optional: ValueChangeListener, wenn du die Suchergebnisse sofort aktualisieren möchtest -->
-                </h:inputText>
+                <!-- Toggle-Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <h:dataTable value="#{bean.emissionDataList}" var="data" styleClass="table table-hover">
-                    <h:column>
-                        <f:facet name="header">#</f:facet>
-                        #{data.index}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Land</f:facet>
-                        #{data.country}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Unternehmen</f:facet>
-                        #{data.company}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">CO²-Emissionen</f:facet>
-                        #{data.emissions}
-                    </h:column>
-                </h:dataTable>
+                <!-- Globale Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Presse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </h:form>
-</h:body>
+        </nav>
+        <main role="main" class="flex-shrink-0">
+            <div class="container">
+                <h:form>
+                    <h:dataTable value="#{co2.allCo2EmissionData}" var="data" styleClass="table table-hover">
+                        <h:column>
+                            <f:facet name="header">Land</f:facet>
+                            <h:outputText value="#{data.countryCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Datum</f:facet>
+                            <h:outputText value="#{data.date}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">CO²-Emissionen</f:facet>
+                            <h:outputText value="#{data.amountValue}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+        </script>
+    </h:body>
+</f:view>
 </html>
