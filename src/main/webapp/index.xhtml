@@ -51,10 +51,40 @@
                 </div>
             </div>
         </nav>
+        <div class="row">
+            <div class="col-12 col-md-9 mx-auto">
+                <!-- Hauptinhalt hier -->
+                <h2>Willkommen auf unserer Emissionswebseite: Nachhaltigkeit in Aktion</h2>
+                <p>Auf unserer Webseite dreht sich alles um das Thema Emissionen und wie wir gemeinsam dazu beitragen
+                    können, unseren Planeten zu schützen. Wir sind fest davon überzeugt, dass jeder von uns einen Beitrag
+                    leisten kann, um die Umweltauswirkungen zu reduzieren und eine nachhaltigere Zukunft zu gestalten.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-9 mx-auto">
+                <h2>Über uns</h2>
+                <!-- Inhalt für den ersten Bereich hier -->
+                <p>Wir glauben an die Kraft der Gemeinschaft und laden Sie ein, sich unserer Bewegung
+                    anzuschließen. Durch Bildung, Engagement und Handeln können wir gemeinsam einen bedeutenden
+                    Unterschied machen. Unser Blog und unsere Ressourcen stehen Ihnen zur Verfügung, um Sie bei
+                    Ihrer Reise zur Emissionsreduktion zu unterstützen.
+
+                    Gemeinsam können wir die Emissionen verringern und eine nachhaltige Zukunft für kommende
+                    Generationen sichern. Machen Sie mit und seien Sie Teil der Lösung!</p>
+            </div>
+        </div>
         <main role="main" class="flex-shrink-0">
             <div class="container">
                 <h:form>
-                    <h:dataTable value="#{co2.allCo2EmissionData}" var="data" styleClass="table table-hover">
+                    <div class="text-center">
+                        <h:selectOneMenu id="countryDropdown" value="#{co2.selectedCountry}">
+                            <f:selectItems value="#{co2.allCountryData}" var="country"
+                                           itemLabel="#{country.countryName}" itemValue="#{country.countryCode}"/>
+                            <f:ajax listener="#{co2.loadCo2Emissions}" render="co2EmissionsTable" />
+                        </h:selectOneMenu>
+                    </div>
+                    <h:dataTable id="co2EmissionsTable" value="#{co2.allCo2EmissionData}" var="data" styleClass="table table-hover">
                         <h:column>
                             <f:facet name="header">Land</f:facet>
                             <h:outputText value="#{data.countryCode}"/>
@@ -71,6 +101,13 @@
                 </h:form>
             </div>
         </main>
+
+        <footer class="footer-section">
+            <div class="container text-center">
+                <p>&#169;2023 Deine Webseite. Alle Rechte vorbehalten.</p>
+                <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+            </div>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js">
         </script>

@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="primefaces and bootstrap added in index.xhtml">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="styles.css added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/dao/CountryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/CountryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/CountryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/CountryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="cdi.beans_4_0" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -185,7 +189,7 @@
       <workItem from="1705950379677" duration="340000" />
       <workItem from="1705952475124" duration="687000" />
       <workItem from="1706789117150" duration="221000" />
-      <workItem from="1706816351801" duration="6191000" />
+      <workItem from="1706816351801" duration="7661000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -219,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707074511823</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="styles.css added">
+      <option name="closed" value="true" />
+      <created>1707074962754</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707074962754</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +253,7 @@
     <MESSAGE value="Main class added for developer testing&#10;index.xhtml added to project&#10;index.xhtml set as landing page in web.xml" />
     <MESSAGE value="technical Spike added&#10;- beans&#10;- controller&#10;- services&#10;- DAO&#10;index.xhtml errors fixed" />
     <MESSAGE value="primefaces and bootstrap added in index.xhtml" />
-    <option name="LAST_COMMIT_MESSAGE" value="primefaces and bootstrap added in index.xhtml" />
+    <MESSAGE value="styles.css added" />
+    <option name="LAST_COMMIT_MESSAGE" value="styles.css added" />
   </component>
 </project>

@@ -53,6 +53,11 @@ public class CountryEntity {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return countryName;
+    }
+
     public Collection<Co2EmissionsEntity> getCo2EmissionsByCountryCode() {
         return co2EmissionsByCountryCode;
     }
