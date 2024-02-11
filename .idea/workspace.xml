@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="add emission data implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/ChangelogEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/ChangelogEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" afterDir="false" />
-    </list>
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,7 +183,7 @@
       <workItem from="1705950379677" duration="340000" />
       <workItem from="1705952475124" duration="687000" />
       <workItem from="1706789117150" duration="221000" />
-      <workItem from="1706816351801" duration="11649000" />
+      <workItem from="1706816351801" duration="12083000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -261,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707649533006</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table">
+      <option name="closed" value="true" />
+      <created>1707650367586</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707650367586</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +292,7 @@
     <MESSAGE value="login implementend&#10;login.xhtml&#10;backend.xhtml" />
     <MESSAGE value="password encryption" />
     <MESSAGE value="add emission data implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="add emission data implemented" />
+    <MESSAGE value="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
   </component>
 </project>

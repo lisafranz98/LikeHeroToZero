@@ -40,7 +40,7 @@ public class Co2EmissionDAO {
         changelogEntity.setEmissionsId(managedCo2EmissionEntity.getEmissionsId());
         changelogEntity.setUserId(managedCo2EmissionEntity.getUserId());
         changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
-        changelogEntity.setChangeType("INSERT");
+        changelogEntity.setChangeType("ADDITION");
 
         entityManager.persist(changelogEntity);
 

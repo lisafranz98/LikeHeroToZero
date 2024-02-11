@@ -2,12 +2,14 @@ package com.example.likeherotozero.beans;
 
 import com.example.likeherotozero.entity.Co2EmissionsEntity;
 import com.example.likeherotozero.entity.CountryEntity;
+import com.example.likeherotozero.entity.UserEntity;
 import com.example.likeherotozero.service.Co2EmissionDataService;
 import com.example.likeherotozero.service.CountryService;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -64,8 +66,19 @@ public class Co2EmissionBean implements Serializable {
     }
 
     public Integer getLoggedInUserId() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        return (Integer) context.getExternalContext().getSessionMap().get("userId");
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        //return (Integer) context.getExternalContext().getSessionMap().get("userId");
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+        if (session != null)
+        {
+            UserEntity user = (UserEntity) session.getAttribute("user");
+            if (user != null)
+            {
+                return user.getUserId();
+            }
+        }
+
+        return null;
     }
 
     public void addEmission()
