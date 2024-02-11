@@ -12,10 +12,10 @@ public class ChangelogEntity {
     @Column(name = "changelog_id")
     private int changelogId;
     @Basic
-    @Column(name = "emissions_id", insertable = false, updatable = false)
+    @Column(name = "emissions_id")
     private Integer emissionsId;
     @Basic
-    @Column(name = "user_id", insertable = false, updatable = false)
+    @Column(name = "user_id")
     private Integer userId;
     @Basic
     @Column(name = "change_date")
@@ -24,10 +24,10 @@ public class ChangelogEntity {
     @Column(name = "change_type")
     private Object changeType;
     @ManyToOne
-    @JoinColumn(name = "emissions_id", referencedColumnName = "emissions_id")
+    @JoinColumn(name = "emissions_id", referencedColumnName = "emissions_id", insertable = false, updatable = false)
     private Co2EmissionsEntity co2EmissionsByEmissionsId;
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
     private UserEntity userByUserId;
 
     public int getChangelogId() {

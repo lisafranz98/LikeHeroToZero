@@ -80,7 +80,6 @@ public class Co2EmissionBean implements Serializable {
             newEmission.setUserId(userId);
             co2EmissionDataService.addCo2Emission(newEmission);
         }
-        co2EmissionDataService.addCo2Emission(newEmission);
     }
 
     public String getCountryCode() {

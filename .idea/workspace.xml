@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="password encryption">
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="add emission data implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/dao/Co2EmissionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/dao/Co2EmissionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/Co2EmissionsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/Co2EmissionsEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/Co2EmissionDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/Co2EmissionDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/ChangelogEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/entity/ChangelogEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +187,7 @@
       <workItem from="1705950379677" duration="340000" />
       <workItem from="1705952475124" duration="687000" />
       <workItem from="1706789117150" duration="221000" />
-      <workItem from="1706816351801" duration="10575000" />
+      <workItem from="1706816351801" duration="11649000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -256,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707648375365</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add emission data implemented">
+      <option name="closed" value="true" />
+      <created>1707649533006</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707649533006</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +287,7 @@
     <MESSAGE value="first requirement implemented" />
     <MESSAGE value="login implementend&#10;login.xhtml&#10;backend.xhtml" />
     <MESSAGE value="password encryption" />
-    <option name="LAST_COMMIT_MESSAGE" value="password encryption" />
+    <MESSAGE value="add emission data implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="add emission data implemented" />
   </component>
 </project>

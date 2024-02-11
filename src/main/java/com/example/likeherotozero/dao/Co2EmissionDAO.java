@@ -1,8 +1,10 @@
 package com.example.likeherotozero.dao;
 
+import com.example.likeherotozero.entity.ChangelogEntity;
 import com.example.likeherotozero.entity.Co2EmissionsEntity;
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Co2EmissionDAO {
@@ -31,7 +33,17 @@ public class Co2EmissionDAO {
     {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.merge(emission);
+
+        Co2EmissionsEntity managedCo2EmissionEntity = entityManager.merge(emission);
+
+        ChangelogEntity changelogEntity = new ChangelogEntity();
+        changelogEntity.setEmissionsId(managedCo2EmissionEntity.getEmissionsId());
+        changelogEntity.setUserId(managedCo2EmissionEntity.getUserId());
+        changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
+        changelogEntity.setChangeType("INSERT");
+
+        entityManager.persist(changelogEntity);
+
         entityManager.getTransaction().commit();
         entityManager.close();
     }
