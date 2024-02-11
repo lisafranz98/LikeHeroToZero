@@ -4,25 +4,49 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Login</title>
-    <!-- Hier können Sie weitere Stylesheets oder Skripte einfügen -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="${request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
 </h:head>
-<h:body>
-    <h:form>
-        <h:panelGrid columns="2">
-            <h:outputLabel for="username" value="Benutzername:" />
-            <h:inputText id="username" value="#{login.username}" required="true" requiredMessage="Benutzername ist erforderlich.">
-                <f:validateLength minimum="3" />
-            </h:inputText>
+<h:body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.xhtml">Der Carbon-Wächter</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#" onclick="history.back();">Zurück</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h:form>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2 class="mb-4">Login</h2>
+                    <h:panelGrid columns="2" styleClass="form-group">
+                        <h:outputLabel for="username" value="Benutzername:" styleClass="col-form-label" />
+                        <h:inputText id="username" value="#{login.username}" required="true" requiredMessage="Benutzername ist erforderlich." styleClass="form-control">
+                            <f:validateLength minimum="3" />
+                        </h:inputText>
 
-            <h:outputLabel for="password" value="Passwort:" />
-            <h:inputSecret id="password" value="#{login.password}" required="true" requiredMessage="Passwort ist erforderlich.">
-                <f:validateLength minimum="8" />
-            </h:inputSecret>
-        </h:panelGrid>
+                        <h:outputLabel for="password" value="Passwort:" styleClass="col-form-label" />
+                        <h:inputSecret id="password" value="#{login.password}" required="true" requiredMessage="Passwort ist erforderlich." styleClass="form-control">
+                            <f:validateLength minimum="8" />
+                        </h:inputSecret>
+                    </h:panelGrid>
 
-        <h:commandButton value="Anmelden" action="#{login.login()}" />
+                    <h:commandButton value="Anmelden" action="#{login.login()}" styleClass="btn btn-primary" />
 
-        <h:messages globalOnly="true" />
-    </h:form>
+                    <h:messages styleClass="alert alert-warning" role="alert" />
+                </div>
+            </div>
+        </h:form>
+    </div>
 </h:body>
 </html>

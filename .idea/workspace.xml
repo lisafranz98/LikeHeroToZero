@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +183,7 @@
       <workItem from="1705950379677" duration="340000" />
       <workItem from="1705952475124" duration="687000" />
       <workItem from="1706789117150" duration="221000" />
-      <workItem from="1706816351801" duration="12083000" />
+      <workItem from="1706816351801" duration="12519000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -265,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707650367586</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="session-management fixed&#10;logged out fixed&#10;some minor errors fixed">
+      <option name="closed" value="true" />
+      <created>1707650961411</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707650961411</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +301,7 @@
     <MESSAGE value="password encryption" />
     <MESSAGE value="add emission data implemented" />
     <MESSAGE value="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
-    <option name="LAST_COMMIT_MESSAGE" value="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
+    <MESSAGE value="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
   </component>
 </project>

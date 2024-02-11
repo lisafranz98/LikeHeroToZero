@@ -24,6 +24,7 @@ public class LoginBean {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
             session.setAttribute("user", user);
+            session.setMaxInactiveInterval(900);
 
             return "backend.xhtml";
         } else {
