@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Login</title>
+    <!-- Hier können Sie weitere Stylesheets oder Skripte einfügen -->
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="username" value="Benutzername:" />
+            <h:inputText id="username" value="#{login.username}" required="true" requiredMessage="Benutzername ist erforderlich.">
+                <f:validateLength minimum="3" />
+            </h:inputText>
+
+            <h:outputLabel for="password" value="Passwort:" />
+            <h:inputSecret id="password" value="#{login.password}" required="true" requiredMessage="Passwort ist erforderlich.">
+                <f:validateLength minimum="8" />
+            </h:inputSecret>
+        </h:panelGrid>
+
+        <h:commandButton value="Anmelden" action="#{login.login()}" />
+
+        <h:messages globalOnly="true" />
+    </h:form>
+</h:body>
+</html>
