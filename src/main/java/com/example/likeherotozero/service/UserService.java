@@ -10,11 +10,12 @@ public class UserService {
 
     public UserService() {this.userDAO = new UserDAO(); }
 
-    public UserEntity checkLogin(String username, String password)
-    {
+    public UserEntity checkLogin(String username, String password) {
+
         UserEntity userEntity = userDAO.findByUsername(username);
-        if(userEntity != null && checkPassword(password, userEntity.getPassword()))
-        {
+        if (userEntity != null
+                && checkPassword(password, userEntity.getPassword())
+                && (userEntity.getIsScientist() == 1 || userEntity.getIsAdmin() == 1)) {
             return userEntity;
         }
         return null;

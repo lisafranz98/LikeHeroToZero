@@ -7,21 +7,16 @@
 </h:head>
 <h:body>
     <h1>Daten zur Klimaforschung hinzufügen</h1>
-
-    <!--    <h:form>-->
-    <!--        <h:panelGrid columns="2">-->
-    <!--            <h:outputLabel for="datum" value="Datum:" />-->
-    <!--            <h:inputText id="datum" value="#{dataBean.date}" />-->
-
-    <!--            <h:outputLabel for="messwert" value="Messwert:" />-->
-    <!--            <h:inputText id="messwert" value="#{dataBean.measurement}" />-->
-
-    <!--            &lt;!&ndash; Fügen Sie hier weitere Felder nach Bedarf hinzu &ndash;&gt;-->
-
-    <!--        </h:panelGrid>-->
-
-    <!--        <h:commandButton value="Daten senden" action="#{dataBean.submitData}" />-->
-    <!--        <h:messages globalOnly="true" />-->
-    <!--    </h:form>-->
+    <h:form>
+        <h:panelGrid columns="2">
+            Ländercode:
+            <h:inputText value="#{co2.countryCode}"/>
+            Datum (Jahr):
+            <h:inputText value="#{co2.date}" />
+            Emissionswert:
+            <h:inputText value="#{co2.amountValue}" />
+        </h:panelGrid>
+        <h:commandButton value="Speichern" action="#{co2.addEmission}" />
+    </h:form>
 </h:body>
 </html>

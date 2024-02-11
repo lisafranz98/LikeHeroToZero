@@ -23,7 +23,7 @@ public class Co2EmissionsEntity {
     }
 
     @Basic
-    @Column(name = "country_code", insertable = false, updatable = false)
+    @Column(name = "country_code")
     private String countryCode;
     @Basic
     @Column(name = "date")
@@ -32,15 +32,15 @@ public class Co2EmissionsEntity {
     @Column(name = "amount_value")
     private BigDecimal amountValue;
     @Basic
-    @Column(name = "user_id", insertable = false, updatable = false)
+    @Column(name = "user_id")
     private Integer userId;
     @OneToMany(mappedBy = "co2EmissionsByEmissionsId")
     private Collection<ChangelogEntity> changelogsByEmissionsId;
     @ManyToOne
-    @JoinColumn(name = "country_code", referencedColumnName = "country_code", nullable = false)
+    @JoinColumn(name = "country_code", referencedColumnName = "country_code", nullable = false, insertable = false, updatable = false)
     private CountryEntity countryByCountryCode;
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
     private UserEntity userByUserId;
 
     public int getEmissionsId() {

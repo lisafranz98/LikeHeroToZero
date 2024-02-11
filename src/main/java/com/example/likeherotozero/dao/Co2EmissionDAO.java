@@ -26,4 +26,13 @@ public class Co2EmissionDAO {
         List<Co2EmissionsEntity> co2EmissionsEntityList = q.getResultList();
         return co2EmissionsEntityList;
     }
+
+    public void addCo2Emission(Co2EmissionsEntity emission)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.merge(emission);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 }

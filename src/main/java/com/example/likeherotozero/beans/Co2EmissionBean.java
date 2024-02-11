@@ -4,11 +4,13 @@ import com.example.likeherotozero.entity.Co2EmissionsEntity;
 import com.example.likeherotozero.entity.CountryEntity;
 import com.example.likeherotozero.service.Co2EmissionDataService;
 import com.example.likeherotozero.service.CountryService;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Named("co2")
@@ -21,6 +23,12 @@ public class Co2EmissionBean implements Serializable {
     private List<CountryEntity> countryEntityList;
 
     private String selectedCountry;
+
+    private String countryCode;
+
+    private int date;
+
+    private BigDecimal amountValue;
 
     public List<Co2EmissionsEntity> getAllCo2EmissionData()
     {
@@ -53,5 +61,49 @@ public class Co2EmissionBean implements Serializable {
     public void loadCo2Emissions(AjaxBehaviorEvent event)
     {
         co2EmissionsEntityList = getCo2EmissionsForSelectedCountry();
+    }
+
+    public Integer getLoggedInUserId() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        return (Integer) context.getExternalContext().getSessionMap().get("userId");
+    }
+
+    public void addEmission()
+    {
+        Co2EmissionsEntity newEmission = new Co2EmissionsEntity();
+        newEmission.setCountryCode(countryCode);
+        newEmission.setDate(date);
+        newEmission.setAmountValue(amountValue);
+        Integer userId = getLoggedInUserId();
+        if(userId != null)
+        {
+            newEmission.setUserId(userId);
+            co2EmissionDataService.addCo2Emission(newEmission);
+        }
+        co2EmissionDataService.addCo2Emission(newEmission);
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public BigDecimal getAmountValue() {
+        return amountValue;
+    }
+
+    public void setAmountValue(BigDecimal amountValue) {
+        this.amountValue = amountValue;
     }
 }

@@ -23,4 +23,9 @@ public class Co2EmissionDataService {
     {
         return co2EmissionDAO.getCo2EmissionByCountry(selectedCountry);
     }
+
+    public void addCo2Emission(Co2EmissionsEntity emission)
+    {
+        co2EmissionDAO.addCo2Emission(emission);
+    }
 }
