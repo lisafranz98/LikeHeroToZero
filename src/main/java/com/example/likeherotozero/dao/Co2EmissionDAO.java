@@ -78,4 +78,33 @@ public class Co2EmissionDAO {
             entityManager.close();
         }
     }
+
+    public void deleteEmission(Integer emissionId) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+
+            Query deleteChangelogs = entityManager.createQuery("DELETE FROM ChangelogEntity c WHERE c.emissionsId = :emissionId");
+            deleteChangelogs.setParameter("emissionId", emissionId).executeUpdate();
+
+            Co2EmissionsEntity emissionToDelete = entityManager.find(Co2EmissionsEntity.class, emissionId);
+            if (emissionToDelete != null) {
+                entityManager.remove(emissionToDelete);
+
+                ChangelogEntity changelogEntity = new ChangelogEntity();
+                changelogEntity.setEmissionsId(emissionToDelete.getEmissionsId());
+                changelogEntity.setUserId(emissionToDelete.getUserId()); // Annahme: UserId ist verfügbar
+                changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
+                changelogEntity.setChangeType("DELETION");
+                entityManager.persist(changelogEntity);
+            }
+
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+    }
 }

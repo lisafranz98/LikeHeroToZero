@@ -115,6 +115,10 @@ public class Co2EmissionBean implements Serializable {
         }
     }
 
+    public void deleteEmission(Co2EmissionsEntity emission) {
+        co2EmissionDataService.deleteCo2Emission(emission.getEmissionsId());
+    }
+
     public String getCountryCode() {
         return countryCode;
     }

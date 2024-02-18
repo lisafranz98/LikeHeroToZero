@@ -65,13 +65,13 @@
                 <p:ajax event="cellEdit" listener="#{co2.onCellEdit}" update=":form:messages"/>
 
 
-                <p:column headerText="Emission-ID" filterBy="#{data.emissionsId}" filterMatchMode="contains">
-                    <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{data.emissionsId}"/></f:facet>
-                        <f:facet name="input"><p:inputText value="#{data.emissionsId}" style="width:100%"
-                                                           label="CountryCode"/></f:facet>
-                    </p:cellEditor>
-                </p:column>
+<!--                <p:column headerText="Emission-ID" filterBy="#{data.emissionsId}" filterMatchMode="contains">-->
+<!--                    <p:cellEditor>-->
+<!--                        <f:facet name="output"><h:outputText value="#{data.emissionsId}"/></f:facet>-->
+<!--                        <f:facet name="input"><p:inputText value="#{data.emissionsId}" style="width:100%"-->
+<!--                                                           label="CountryCode"/></f:facet>-->
+<!--                    </p:cellEditor>-->
+<!--                </p:column>-->
 
                 <p:column headerText="Ländercode" filterBy="#{data.countryCode}" filterMatchMode="contains">
                     <p:cellEditor>

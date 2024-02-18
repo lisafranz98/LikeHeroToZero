@@ -32,4 +32,8 @@ public class Co2EmissionDataService {
     public void updateCo2Emission(Co2EmissionsEntity emission) {
         co2EmissionDAO.updateCo2Emission(emission);
     }
+
+    public void deleteCo2Emission(Integer emissionId) {
+        co2EmissionDAO.deleteEmission(emissionId);
+    }
 }
