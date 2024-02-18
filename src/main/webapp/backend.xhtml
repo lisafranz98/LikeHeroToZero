@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Backend</title>
     <!-- Required meta tags -->
     <meta charset="utf-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
     <link href="${request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
 </h:head>
@@ -17,14 +18,16 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.xhtml">Der Carbon-Wächter</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <h:form>
-                            <h:commandButton value="Logout" action="#{login.logout}" styleClass="btn btn-outline-secondary nav-link" />
+                            <h:commandButton value="Logout" action="#{login.logout}"
+                                             styleClass="btn btn-outline-secondary nav-link"/>
                         </h:form>
                     </li>
                 </ul>
@@ -36,17 +39,75 @@
         <h1>Daten zur Klimaforschung hinzufügen</h1>
         <h:form>
             <h:panelGrid columns="2" styleClass="form-group">
-                <h:outputLabel value="Ländercode:" styleClass="col-form-label" />
+                <h:outputLabel value="Ländercode:" styleClass="col-form-label"/>
                 <h:inputText value="#{co2.countryCode}" styleClass="form-control"/>
 
-                <h:outputLabel value="Datum (Jahr):" styleClass="col-form-label" />
-                <h:inputText value="#{co2.date}" styleClass="form-control" />
+                <h:outputLabel value="Datum (Jahr):" styleClass="col-form-label"/>
+                <h:inputText value="#{co2.date}" styleClass="form-control"/>
 
-                <h:outputLabel value="Emissionswert:" styleClass="col-form-label" />
-                <h:inputText value="#{co2.amountValue}" styleClass="form-control" />
+                <h:outputLabel value="Emissionswert:" styleClass="col-form-label"/>
+                <h:inputText value="#{co2.amountValue}" styleClass="form-control"/>
             </h:panelGrid>
-            <h:commandButton value="Hinzufügen" action="#{co2.addEmission}" styleClass="btn btn-success" />
+            <h:commandButton value="Hinzufügen" action="#{co2.addEmission}" styleClass="btn btn-success"/>
         </h:form>
     </div>
+
+    <h:form id="form">
+        <div class="container mt-5">
+            <h1>Verwaltung der Klimaforschungsdaten</h1>
+
+            <p:messages id="messages" autoUpdate="true" showDetail="true" closable="true" />
+
+            <h2>Vorhandene Daten bearbeiten</h2>
+            <p:dataTable id="emissionTable" var="data" value="#{co2.allCo2EmissionData}" widgetVar="emissionTable"
+                         editable="true" editMode="cell" styleClass="table table-striped">
+
+                <p:ajax event="cellEdit" listener="#{co2.onCellEdit}" update=":form:messages"/>
+
+
+                <p:column headerText="Emission-ID" filterBy="#{data.emissionsId}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{data.emissionsId}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{data.emissionsId}" style="width:100%"
+                                                           label="CountryCode"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Ländercode" filterBy="#{data.countryCode}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{data.countryCode}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{data.countryCode}" style="width:100%"
+                                                           label="CountryCode"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Datum (Jahr)" filterBy="#{data.date}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{data.date}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{data.date}" style="width:100%"
+                                                           label="Date"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Emissionswert" filterBy="#{data.amountValue}" filterMatchMode="contains">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{data.amountValue}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{data.amountValue}" style="width:100%"
+                                                           label="EmissionValue"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column style="width:32px">
+                    <p:rowEditor/>
+                </p:column>
+
+                <p:column style="width:32px">
+                    <p:commandButton icon="pi pi-trash" title="Löschen" actionListener="#{co2.deleteEmission(data)}"
+                                     update=":form:emissionTable"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+
 </h:body>
 </html>

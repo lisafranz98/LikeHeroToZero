@@ -5,11 +5,13 @@ import com.example.likeherotozero.entity.CountryEntity;
 import com.example.likeherotozero.entity.UserEntity;
 import com.example.likeherotozero.service.Co2EmissionDataService;
 import com.example.likeherotozero.service.CountryService;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpSession;
+import org.primefaces.event.CellEditEvent;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -92,6 +94,24 @@ public class Co2EmissionBean implements Serializable {
         {
             newEmission.setUserId(userId);
             co2EmissionDataService.addCo2Emission(newEmission);
+        }
+    }
+
+    public void onCellEdit(CellEditEvent<Object> event) {
+        Object oldValue = event.getOldValue();
+        Object newValue = event.getNewValue();
+
+        if (!newValue.equals(oldValue)) {
+            Co2EmissionsEntity editedEmission = co2EmissionsEntityList.get(event.getRowIndex());
+            if (event.getColumn().getColumnKey().equals("countryCode")) {
+                editedEmission.setCountryCode((String) newValue);
+            } else if (event.getColumn().getColumnKey().equals("date")) {
+                editedEmission.setDate((Integer) newValue);
+            } else if (event.getColumn().getColumnKey().equals("amountValue")) {
+                editedEmission.setAmountValue((BigDecimal) newValue);
+            }
+            co2EmissionDataService.updateCo2Emission(editedEmission);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Zelle geändert", "Alter Wert: " + oldValue + ", Neuer Wert: " + newValue));
         }
     }
 

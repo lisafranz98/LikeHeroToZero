@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="login.xhtml and backend.xhtml styled&#10;side navigation added&#10;session-timeout added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +185,7 @@
       <workItem from="1705950379677" duration="340000" />
       <workItem from="1705952475124" duration="687000" />
       <workItem from="1706789117150" duration="221000" />
-      <workItem from="1706816351801" duration="12519000" />
+      <workItem from="1706816351801" duration="13345000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -273,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707650961411</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="login.xhtml and backend.xhtml styled&#10;side navigation added&#10;session-timeout added">
+      <option name="closed" value="true" />
+      <created>1707651201250</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707651201250</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +312,7 @@
     <MESSAGE value="add emission data implemented" />
     <MESSAGE value="add changelog entry for inserting new co2emissions data implemented&#10;error fixed duplicate entries saved in changelog table" />
     <MESSAGE value="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="session-management fixed&#10;logged out fixed&#10;some minor errors fixed" />
+    <MESSAGE value="login.xhtml and backend.xhtml styled&#10;side navigation added&#10;session-timeout added" />
+    <option name="LAST_COMMIT_MESSAGE" value="login.xhtml and backend.xhtml styled&#10;side navigation added&#10;session-timeout added" />
   </component>
 </project>

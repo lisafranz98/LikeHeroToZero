@@ -47,4 +47,35 @@ public class Co2EmissionDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
+    public void updateCo2Emission(Co2EmissionsEntity emission) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+
+            Co2EmissionsEntity existingEmission = entityManager.find(Co2EmissionsEntity.class, emission.getEmissionsId());
+            if (existingEmission != null) {
+                existingEmission.setCountryCode(emission.getCountryCode());
+                existingEmission.setDate(emission.getDate());
+                existingEmission.setAmountValue(emission.getAmountValue());
+                existingEmission.setUserId(emission.getUserId());
+
+                entityManager.merge(existingEmission);
+
+                ChangelogEntity changelogEntity = new ChangelogEntity();
+                changelogEntity.setEmissionsId(existingEmission.getEmissionsId());
+                changelogEntity.setUserId(existingEmission.getUserId());
+                changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
+                changelogEntity.setChangeType("UPDATE");
+                entityManager.persist(changelogEntity);
+            }
+
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+    }
 }

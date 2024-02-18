@@ -28,4 +28,8 @@ public class Co2EmissionDataService {
     {
         co2EmissionDAO.addCo2Emission(emission);
     }
+
+    public void updateCo2Emission(Co2EmissionsEntity emission) {
+        co2EmissionDAO.updateCo2Emission(emission);
+    }
 }
