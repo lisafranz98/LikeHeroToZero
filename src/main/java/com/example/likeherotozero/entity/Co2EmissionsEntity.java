@@ -12,22 +12,12 @@ public class Co2EmissionsEntity {
     @Id
     @Column(name = "emissions_id")
     private int emissionsId;
-
-    @Override
-    public String toString() {
-        return "Co2EmissionsEntity{" +
-                "countryCode='" + countryCode + '\'' +
-                ", date=" + date +
-                ", amountValue=" + amountValue +
-                '}';
-    }
-
     @Basic
     @Column(name = "country_code")
     private String countryCode;
     @Basic
     @Column(name = "date")
-    private Object date;
+    private Integer date;
     @Basic
     @Column(name = "amount_value")
     private BigDecimal amountValue;
@@ -59,11 +49,11 @@ public class Co2EmissionsEntity {
         this.countryCode = countryCode;
     }
 
-    public Object getDate() {
+    public Integer getDate() {
         return date;
     }
 
-    public void setDate(Object date) {
+    public void setDate(Integer date) {
         this.date = date;
     }
 
@@ -107,6 +97,15 @@ public class Co2EmissionsEntity {
         result = 31 * result + (amountValue != null ? amountValue.hashCode() : 0);
         result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Co2EmissionsEntity{" +
+                "countryCode='" + countryCode + '\'' +
+                ", date=" + date +
+                ", amountValue=" + amountValue +
+                '}';
     }
 
     public Collection<ChangelogEntity> getChangelogsByEmissionsId() {

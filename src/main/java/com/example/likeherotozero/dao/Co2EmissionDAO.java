@@ -2,7 +2,10 @@ package com.example.likeherotozero.dao;
 
 import com.example.likeherotozero.entity.ChangelogEntity;
 import com.example.likeherotozero.entity.Co2EmissionsEntity;
+import com.example.likeherotozero.entity.UserEntity;
 import jakarta.persistence.*;
+import jakarta.servlet.http.HttpSession;
+import jakarta.faces.context.FacesContext;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -64,7 +67,17 @@ public class Co2EmissionDAO {
 
                 ChangelogEntity changelogEntity = new ChangelogEntity();
                 changelogEntity.setEmissionsId(existingEmission.getEmissionsId());
-                changelogEntity.setUserId(existingEmission.getUserId());
+
+                FacesContext facesContext = FacesContext.getCurrentInstance();
+                HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+                UserEntity user = (UserEntity) session.getAttribute("user");
+                if (existingEmission.getUserId() != null) {
+                    changelogEntity.setUserId(existingEmission.getUserId());
+                }
+                else {
+                    changelogEntity.setUserId(user.getUserId());
+                }
+
                 changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
                 changelogEntity.setChangeType("UPDATE");
                 entityManager.persist(changelogEntity);
@@ -84,8 +97,8 @@ public class Co2EmissionDAO {
         try {
             entityManager.getTransaction().begin();
 
-            Query deleteChangelogs = entityManager.createQuery("DELETE FROM ChangelogEntity c WHERE c.emissionsId = :emissionId");
-            deleteChangelogs.setParameter("emissionId", emissionId).executeUpdate();
+//            Query deleteChangelogs = entityManager.createQuery("DELETE FROM ChangelogEntity c WHERE c.emissionsId = :emissionId");
+//            deleteChangelogs.setParameter("emissionId", emissionId).executeUpdate();
 
             Co2EmissionsEntity emissionToDelete = entityManager.find(Co2EmissionsEntity.class, emissionId);
             if (emissionToDelete != null) {
@@ -93,7 +106,7 @@ public class Co2EmissionDAO {
 
                 ChangelogEntity changelogEntity = new ChangelogEntity();
                 changelogEntity.setEmissionsId(emissionToDelete.getEmissionsId());
-                changelogEntity.setUserId(emissionToDelete.getUserId()); // Annahme: UserId ist verfügbar
+                changelogEntity.setUserId(emissionToDelete.getUserId());
                 changelogEntity.setChangeDate(new Timestamp(System.currentTimeMillis()));
                 changelogEntity.setChangeType("DELETION");
                 entityManager.persist(changelogEntity);
@@ -107,4 +120,6 @@ public class Co2EmissionDAO {
             entityManager.close();
         }
     }
+
+
 }
