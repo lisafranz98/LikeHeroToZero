@@ -36,4 +36,8 @@ public class Co2EmissionDataService {
     public void deleteCo2Emission(Integer emissionId) {
         co2EmissionDAO.deleteEmission(emissionId);
     }
+    public List<Co2EmissionsEntity> findPaginated(int first, int pageSize)
+    {
+        return co2EmissionDAO.findPaginated(first, pageSize);
+    }
 }

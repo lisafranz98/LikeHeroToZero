@@ -18,7 +18,7 @@ public class Co2EmissionDAO {
     {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query q = entityManager.createQuery("select e from Co2EmissionsEntity e where e.amountValue != 0");
-        q.setMaxResults(10);
+        //q.setMaxResults(10);
         List<Co2EmissionsEntity> co2EmissionsEntityList = q.getResultList();
         return co2EmissionsEntityList;
     }
@@ -97,8 +97,8 @@ public class Co2EmissionDAO {
         try {
             entityManager.getTransaction().begin();
 
-//            Query deleteChangelogs = entityManager.createQuery("DELETE FROM ChangelogEntity c WHERE c.emissionsId = :emissionId");
-//            deleteChangelogs.setParameter("emissionId", emissionId).executeUpdate();
+            //Query deleteChangelogs = entityManager.createQuery("DELETE FROM ChangelogEntity c WHERE c.emissionsId = :emissionId");
+            //deleteChangelogs.setParameter("emissionId", emissionId).executeUpdate();
 
             Co2EmissionsEntity emissionToDelete = entityManager.find(Co2EmissionsEntity.class, emissionId);
             if (emissionToDelete != null) {
@@ -121,5 +121,11 @@ public class Co2EmissionDAO {
         }
     }
 
-
+    public List<Co2EmissionsEntity> findPaginated(int first, int pageSize)
+    {
+        return entityManagerFactory.createEntityManager().createQuery("select e from Co2EmissionsEntity e", Co2EmissionsEntity.class)
+                .setFirstResult(first)
+                .setMaxResults(pageSize)
+                .getResultList();
+    }
 }

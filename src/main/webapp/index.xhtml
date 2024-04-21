@@ -19,8 +19,8 @@
         />
         <link href="${request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
     </h:head>
-    <h:body styleClass="d-flex flex-column h-100">
-        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
+    <h:body styleClass="d-flex flex-column vh-100">
+        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light mb-4">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <span>Der Carbon-Wächter</span>
@@ -52,7 +52,7 @@
             </div>
         </nav>
         <div class="row">
-            <div class="col-12 col-md-9 mx-auto">
+            <div class="col-12 col-md-9 mx-auto mb-5">
                 <!-- Hauptinhalt hier -->
                 <h2>Willkommen auf unserer Emissionswebseite: Nachhaltigkeit in Aktion</h2>
                 <p>Auf unserer Webseite dreht sich alles um das Thema Emissionen und wie wir gemeinsam dazu beitragen
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-9 mx-auto">
+            <div class="col-12 col-md-9 mx-auto mb-5">
                 <h2>Über uns</h2>
                 <!-- Inhalt für den ersten Bereich hier -->
                 <p>Wir glauben an die Kraft der Gemeinschaft und laden Sie ein, sich unserer Bewegung
@@ -74,10 +74,15 @@
                     Generationen sichern. Machen Sie mit und seien Sie Teil der Lösung!</p>
             </div>
         </div>
-        <main role="main" class="flex-shrink-0">
+        <main role="main" class="flex-shrink-0 flex-grow-1">
+            <div class="row">
+                <div class="text-center col-12 col-md-9 mx-auto mb-5">
+                    <h3>Wählen Sie ihre Staatsangehörigkeit um die aktuellsten Daten zum CO2-Ausstoß ihres Landes zu sehen:</h3>
+                </div>
+            </div>
             <div class="container">
                 <h:form>
-                    <div class="text-center">
+                    <div class="text-center mb-5">
                         <h:selectOneMenu id="countryDropdown" value="#{co2.selectedCountry}">
                             <f:selectItems value="#{co2.allCountryData}" var="country"
                                            itemLabel="#{country.countryName}" itemValue="#{country.countryCode}"/>
@@ -102,7 +107,7 @@
             </div>
         </main>
 
-        <footer class="footer-section">
+        <footer class="footer-section mt-auto">
             <div class="container text-center">
                 <p>&#169;2023 Deine Webseite. Alle Rechte vorbehalten.</p>
                 <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>

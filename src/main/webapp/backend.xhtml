@@ -48,30 +48,33 @@
                 <h:outputLabel value="Emissionswert:" styleClass="col-form-label"/>
                 <h:inputText value="#{co2.amountValue}" styleClass="form-control"/>
             </h:panelGrid>
-            <h:commandButton value="Hinzufügen" action="#{co2.addEmission}" styleClass="btn btn-success"/>
+            <h:commandButton value="Hinzufügen" action="#{co2.addEmission}" styleClass="btn btn-success" update=":form:emissionTable"/>
         </h:form>
     </div>
 
     <h:form id="form">
         <div class="container mt-5">
             <h1>Verwaltung der Klimaforschungsdaten</h1>
+            <!-- Form to add data omitted for brevity -->
 
             <p:messages id="messages" autoUpdate="true" showDetail="true" closable="true" />
 
             <h2>Vorhandene Daten bearbeiten</h2>
             <p:dataTable id="emissionTable" var="data" value="#{co2.allCo2EmissionData}" widgetVar="emissionTable"
-                         editable="true" editMode="cell" styleClass="table table-striped">
+                         editable="true" editMode="cell" styleClass="table table-striped" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLinks} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="(Seite {currentPage} von {totalPages}, Insgesamt {totalRecords} Datensätze)"
+                         rowsPerPageDropdown="5,10,15">
+                <!--                <p:column headerText="Emission-ID" filterBy="#{data.emissionsId}" filterMatchMode="contains">-->
+                <!--                    <p:cellEditor>-->
+                <!--                        <f:facet name="output"><h:outputText value="#{data.emissionsId}"/></f:facet>-->
+                <!--                        <f:facet name="input"><p:inputText value="#{data.emissionsId}" style="width:100%"-->
+                <!--                                                           label="CountryCode"/></f:facet>-->
+                <!--                    </p:cellEditor>-->
+                <!--                </p:column>-->
+                <p:ajax event="page" listener="#{co2.onPageChange}" update=":form:emissionTable"/>
 
                 <p:ajax event="cellEdit" listener="#{co2.onCellEdit}" update=":form:messages"/>
-
-
-<!--                <p:column headerText="Emission-ID" filterBy="#{data.emissionsId}" filterMatchMode="contains">-->
-<!--                    <p:cellEditor>-->
-<!--                        <f:facet name="output"><h:outputText value="#{data.emissionsId}"/></f:facet>-->
-<!--                        <f:facet name="input"><p:inputText value="#{data.emissionsId}" style="width:100%"-->
-<!--                                                           label="CountryCode"/></f:facet>-->
-<!--                    </p:cellEditor>-->
-<!--                </p:column>-->
 
                 <p:column headerText="Ländercode" filterBy="#{data.countryCode}" filterMatchMode="contains">
                     <p:cellEditor>

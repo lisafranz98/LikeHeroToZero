@@ -12,6 +12,7 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpSession;
 import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.data.PageEvent;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class Co2EmissionBean implements Serializable {
     private final Co2EmissionDataService co2EmissionDataService = new Co2EmissionDataService();
     private final CountryService countryService = new CountryService();
     private List<Co2EmissionsEntity> co2EmissionsEntityList;
+    private List<Co2EmissionsEntity> co2EmissionsEntityListPage;
     private List<CountryEntity> countryEntityList;
 
     private String selectedCountry;
@@ -94,7 +96,14 @@ public class Co2EmissionBean implements Serializable {
         {
             newEmission.setUserId(userId);
             co2EmissionDataService.addCo2Emission(newEmission);
+            refreshPaginatedData();
         }
+    }
+
+    public void refreshPaginatedData() {
+        int pageSize = 10;
+        this.co2EmissionsEntityListPage= co2EmissionDataService.findPaginated(0, pageSize);
+        this.co2EmissionsEntityList = co2EmissionDataService.getAllCo2EmissionData();
     }
 
     public void onCellEdit(CellEditEvent<Object> event) {
@@ -117,6 +126,14 @@ public class Co2EmissionBean implements Serializable {
 
     public void deleteEmission(Co2EmissionsEntity emission) {
         co2EmissionDataService.deleteCo2Emission(emission.getEmissionsId());
+        co2EmissionsEntityList.remove(emission);
+    }
+
+    public void onPageChange(PageEvent event)
+    {
+        int newPage = event.getPage();
+        int pageSize = 10;
+        this.co2EmissionsEntityListPage = co2EmissionDataService.findPaginated(newPage * pageSize, pageSize);
     }
 
     public String getCountryCode() {
@@ -141,5 +158,10 @@ public class Co2EmissionBean implements Serializable {
 
     public void setAmountValue(BigDecimal amountValue) {
         this.amountValue = amountValue;
+    }
+
+
+    public List<Co2EmissionsEntity> getCo2EmissionsEntityListPage() {
+        return co2EmissionsEntityListPage;
     }
 }

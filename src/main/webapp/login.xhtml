@@ -18,9 +18,9 @@
         <div class="container">
             <a class="navbar-brand" href="index.xhtml">Der Carbon-Wächter</a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#" onclick="history.back();">Zurück</a>
-                </div>
+                <!--                <div class="navbar-nav">
+                                    <a class="nav-item nav-link" href="#" onclick="#{request.contextPath}/index.xhtml">Zurück</a>
+                                </div>-->
             </div>
         </div>
     </nav>
@@ -31,12 +31,14 @@
                     <h2 class="mb-4">Login</h2>
                     <h:panelGrid columns="2" styleClass="form-group">
                         <h:outputLabel for="username" value="Benutzername:" styleClass="col-form-label" />
-                        <h:inputText id="username" value="#{login.username}" required="true" requiredMessage="Benutzername ist erforderlich." styleClass="form-control">
+                        <h:inputText id="username" value="#{login.username}" required="true"
+                                     requiredMessage="Benutzername ist erforderlich." styleClass="form-control">
                             <f:validateLength minimum="3" />
                         </h:inputText>
 
                         <h:outputLabel for="password" value="Passwort:" styleClass="col-form-label" />
-                        <h:inputSecret id="password" value="#{login.password}" required="true" requiredMessage="Passwort ist erforderlich." styleClass="form-control">
+                        <h:inputSecret id="password" value="#{login.password}" required="true"
+                                       requiredMessage="Passwort ist erforderlich." styleClass="form-control">
                             <f:validateLength minimum="8" />
                         </h:inputSecret>
                     </h:panelGrid>
