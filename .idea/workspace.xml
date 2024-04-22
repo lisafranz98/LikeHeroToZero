@@ -9,18 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="index.xhtml fixed">
+    <list default="true" id="23db446b-bfed-4738-a5e3-3e9c31856b70" name="Changes" comment="pagination refresh built-in&#10;data script for co2_emissions-table&#10;some bug-fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/beans/Co2EmissionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/beans/Co2EmissionBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/dao/Co2EmissionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/dao/Co2EmissionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/Co2EmissionDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/likeherotozero/service/Co2EmissionDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/backend.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +189,7 @@
       <workItem from="1706789117150" duration="221000" />
       <workItem from="1706816351801" duration="14167000" />
       <workItem from="1708628620662" duration="4053000" />
-      <workItem from="1713718787585" duration="16861000" />
+      <workItem from="1713718787585" duration="20335000" />
     </task>
     <task id="LOCAL-00001" summary="First project setups&#10;Entities generated from schema&#10;Bugfixing entities">
       <option name="closed" value="true" />
@@ -336,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713721573124</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="pagination refresh built-in&#10;data script for co2_emissions-table&#10;some bug-fixes">
+      <option name="closed" value="true" />
+      <created>1713739929774</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713739929774</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +370,8 @@
     <MESSAGE value="bug fixes for update and delete" />
     <MESSAGE value="pagination built-in&#10;some bug-fixes" />
     <MESSAGE value="index.xhtml fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="index.xhtml fixed" />
+    <MESSAGE value="pagination refresh built-in&#10;data script for co2_emissions-table&#10;some bug-fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination refresh built-in&#10;data script for co2_emissions-table&#10;some bug-fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

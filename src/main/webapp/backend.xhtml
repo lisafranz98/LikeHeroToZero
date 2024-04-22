@@ -46,7 +46,22 @@
                 <h:inputText value="#{co2.date}" styleClass="form-control"/>
 
                 <h:outputLabel value="Emissionswert:" styleClass="col-form-label"/>
-                <h:inputText value="#{co2.amountValue}" styleClass="form-control"/>
+                <h:inputText value="#{co2.amountValue}" styleClass="form-control" onkeypress="return validateInput(event);">
+                    <f:convertNumber pattern="#,##0.00"/>
+                </h:inputText>
+                <script>
+                    function validateInput(event)
+                    {
+                        const regex = /^(?!0\d)\d{0,7}(?:\.\d{0,2})?$/;
+                        const key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                        const input = event.target.value + key;
+                        if (!regex.test(input) || input.replace(/[^0-9]/g, "").length > 9) {
+                            event.preventDefault();
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
             </h:panelGrid>
             <h:commandButton value="Hinzufügen" action="#{co2.addEmission}" styleClass="btn btn-success" update=":form:emissionTable"/>
         </h:form>
