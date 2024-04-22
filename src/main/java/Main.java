@@ -69,7 +69,7 @@ public class Main {
                 String dateStr = record.get("date");
                 Integer date = null;
                 try {
-                    date = Integer.parseInt(record.get("date")); // Annahme, dass das Datum bereits als Jahr vorliegt
+                    date = Integer.parseInt(record.get("date"));
                 } catch (NumberFormatException e) {
                     System.err.println("Fehler beim Parsen von date in Zeile " + lineNumber + ": " + dateStr );
                     lineNumber++;
